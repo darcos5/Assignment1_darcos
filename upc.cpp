@@ -11,14 +11,12 @@ using namespace std;
 
 // function 1 - extracts the digits in reverse order
 // couldn't figure out how to extract the block of code like in the previous units 
-vector <int> breakIntIntoDigits(int num){
+// change vector type, ran into issues 
+vector <int> breakIntIntoDigits(string num){
 vector<int> digits; 
-int temp = abs(num); 
-while (temp > 0){
-    int digit = temp % 10; //extracts last digit from user input
-    digits.push_back(digit);
-    temp /=10;
-    }
+for (char c : num){
+    digits.push_back(c-'0');
+}
 return digits; 
 }
 
@@ -43,8 +41,8 @@ int main()
     while (userAnswer == "y"){
         upcInfo(firstNum, userFirstNum, lastNum, userLastNum, manuNum, userManNum, proNum, userProNum);
         //call my digit vector function 
-        vector<int> manDigits = breakIntIntoDigits(stoi(userManNum));
-        vector<int> proDigits = breakIntIntoDigits(stoi(userProNum));
+        vector<int> manDigits = breakIntIntoDigits((userManNum));
+        vector<int> proDigits = breakIntIntoDigits((userProNum));
         //step 1: add all the odd digits together
         int oddSum = userFirstNum + manDigits[1] + manDigits[3] + proDigits[0] + proDigits[2] + proDigits[4];
         cout << "Current Odd Sum: " << oddSum << endl;
@@ -52,7 +50,6 @@ int main()
         int step2 = oddSum * 3;
         cout << step2 << endl; 
         //step 3: add all even numbers
-        //need to fix something here, its not running as it should
         int evenNum = manDigits[0] + manDigits[2] + manDigits[4] + proDigits[1] + proDigits[3];
         int step3 = evenNum + step2;
         cout << step3 << endl; 

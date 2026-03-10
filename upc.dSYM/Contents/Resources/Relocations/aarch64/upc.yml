@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/daisyarcos/Documents/GitHub/Assignment1_darcos/upc'
+relocations:     []
+...
