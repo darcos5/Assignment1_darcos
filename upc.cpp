@@ -53,6 +53,19 @@ int main()
         int evenNum = manDigits[0] + manDigits[2] + manDigits[4] + proDigits[1] + proDigits[3];
         int step3 = evenNum + step2;
         cout << step3 << endl; 
+        //step 4: calc the modulo
+        int step4Remained = step3 % 10; 
+        int checkDigit;
+        if (step4Remained == 0){
+            checkDigit = 0;
+            cout << "remained is 0";
+        } else{
+            checkDigit = 10 - step4Remained;
+            cout << "remainder is " << checkDigit << endl;
+            
+        }
+
+
 
         // ask user if more upc code 
         cout << userNumber;
