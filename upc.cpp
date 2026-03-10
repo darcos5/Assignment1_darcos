@@ -17,6 +17,29 @@
 #include "upc.h"
 using namespace std;
 
+// function 1 - extracts the digits in reverse order
+// couldn't figure out how to extract the block of code like in the previous units 
+vector <int> breakIntIntoDigits(int userManNum){
+vector<int> manDigits; 
+int temp = abs(userManNum); 
+while (temp > 0){
+   int digit = temp % 10; //extracts last digit from user input
+    manDigits.push_back(digit);
+    temp /=10;
+    }
+return manDigits; 
+}
+vector <int> breakIntIntoDigits(int userProNum){
+vector<int> proDigits; 
+int temp = abs(userProNum); 
+while (temp > 0){
+    int digit = temp % 10; //extracts last digit from user input
+    proDigits.push_back(digit);
+    temp /=10;
+    }
+return proDigits;
+}
+
 int main()
 {
 	// variables
@@ -54,26 +77,7 @@ int main()
 
 	return 0;
 }
-    vector <int> breakIntIntoDigits(int userManNum){
-    vector<int> manDigits; 
-    int temp = abs(userManNum); 
-    while (temp > 0){
-        int digit = temp % 10; //extracts last digit from user input
-        manDigits.push_back(digit);
-        temp /=10;
-    }
-    return manDigits; 
-    }
-    vector <int> breakIntIntoDigits(int userProNum){
-    vector<int> proDigits; 
-    int temp = abs(userProNum); 
-    while (temp > 0){
-        int digit = temp % 10; //extracts last digit from user input
-        proDigits.push_back(digit);
-        temp /=10;
-    }
-    return proDigits;
-}
+
 void upcInfo(std::__1::string &firstNum, int &userFirstNum, std::__1::string &lastNum, int &userLastNum, std::__1::string &manuNum, std::__1::string &userManNum, std::__1::string &proNum, std::__1::string &userProNum)
 {
     cout << firstNum;
