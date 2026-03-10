@@ -24,6 +24,11 @@ int main()
 {
     return mainFunction();
 }
+/**
+ * @brief: Entry point of program. 
+ * @param: None. 
+ * @return: 0 to indicate success. 
+ */
 int mainFunction()
 {
     // variables
@@ -61,7 +66,10 @@ int mainFunction()
 
     return 0;
 }
-//comment 
+/**
+ * @brief: calculates and validates the upc code from user input
+ * @param: userFirstNum, manDigits, proDigits, userLastNum, upcEntire
+ * @return: void
 void ucpSystemFunction(int userFirstNum, std::__1::vector<int> &manDigits, std::__1::vector<int> &proDigits, int userLastNum, std::__1::string &upcEntire)
 {
     // step 1: add all the odd digits together
@@ -92,7 +100,11 @@ void ucpSystemFunction(int userFirstNum, std::__1::vector<int> &manDigits, std::
         cout << "Invalid UPC code." << endl;
     }
 }
-//add comments for this function 
+/**
+ * @brief: Gathers user input for upc 
+ * @param: firstNum, userFirstNum, lastNum, userLastNum, manuNum, usermanNum, proNum, userProNum
+ * @return: void
+ */
 void upcInfo(std::__1::string &firstNum, int &userFirstNum, std::__1::string &lastNum, int &userLastNum, std::__1::string &manuNum, std::__1::string &userManNum, std::__1::string &proNum, std::__1::string &userProNum)
 {
     cout << firstNum;
