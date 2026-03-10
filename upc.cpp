@@ -4,14 +4,6 @@
  * @date 2026-03-09
  * @brief This program validates UPC-A barcodes performing the UPC-A check digit algorithm.
  */
-
-
-/** 
- * Functional Requirements
- * The application must let the user test more than one UPC code without restarting the program. Programs that check only one code and then end will lose points.
- * The application must accurately validate or invalidate UPC codes. If not, points will be deducted.
- * You must create at least three custom functions not including the main function. If your program uses less than 3 custom functions, points will be deducted
-*/
 #include<iostream>
 #include <vector>
 #include "upc.h"
@@ -19,25 +11,15 @@ using namespace std;
 
 // function 1 - extracts the digits in reverse order
 // couldn't figure out how to extract the block of code like in the previous units 
-vector <int> breakIntIntoDigits(int userManNum){
-vector<int> manDigits; 
-int temp = abs(userManNum); 
-while (temp > 0){
-   int digit = temp % 10; //extracts last digit from user input
-    manDigits.push_back(digit);
-    temp /=10;
-    }
-return manDigits; 
-}
-vector <int> breakIntIntoDigits(int userProNum){
-vector<int> proDigits; 
-int temp = abs(userProNum); 
+vector <int> breakIntIntoDigits(int num){
+vector<int> digits; 
+int temp = abs(num); 
 while (temp > 0){
     int digit = temp % 10; //extracts last digit from user input
-    proDigits.push_back(digit);
+    digits.push_back(digit);
     temp /=10;
     }
-return proDigits;
+return digits; 
 }
 
 int main()
@@ -60,6 +42,14 @@ int main()
     cin >> userAnswer; 
     while (userAnswer == "y"){
         upcInfo(firstNum, userFirstNum, lastNum, userLastNum, manuNum, userManNum, proNum, userProNum);
+        //call my digit vector function 
+        vector<int> manDigits = breakIntIntoDigits(stoi(userManNum));
+        vector<int> proDigits = breakIntIntoDigits(stoi(userProNum));
+        //step 1: add all the odd digits together
+        int oddSum = userFirstNum + manDigits[1]+ manDigits[3] + proDigits[0]+ proDigits[2]+ proDigits[4];
+
+        cout << "Current Odd Sum: " << oddSum << endl;
+        // ask user if more upc code 
         cout << userNumber;
         cin >> userAnswer;
 
@@ -77,7 +67,7 @@ int main()
 
 	return 0;
 }
-
+//add comments for this function 
 void upcInfo(std::__1::string &firstNum, int &userFirstNum, std::__1::string &lastNum, int &userLastNum, std::__1::string &manuNum, std::__1::string &userManNum, std::__1::string &proNum, std::__1::string &userProNum)
 {
     cout << firstNum;
