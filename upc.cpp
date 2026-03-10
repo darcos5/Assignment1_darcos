@@ -46,9 +46,17 @@ int main()
         vector<int> manDigits = breakIntIntoDigits(stoi(userManNum));
         vector<int> proDigits = breakIntIntoDigits(stoi(userProNum));
         //step 1: add all the odd digits together
-        int oddSum = userFirstNum + manDigits[1]+ manDigits[3] + proDigits[0]+ proDigits[2]+ proDigits[4];
-
+        int oddSum = userFirstNum + manDigits[1] + manDigits[3] + proDigits[0] + proDigits[2] + proDigits[4];
         cout << "Current Odd Sum: " << oddSum << endl;
+        //step 2: mutliply by 3 
+        int step2 = oddSum * 3;
+        cout << step2 << endl; 
+        //step 3: add all even numbers
+        //need to fix something here, its not running as it should
+        int evenNum = manDigits[0] + manDigits[2] + manDigits[4] + proDigits[1] + proDigits[3];
+        int step3 = evenNum + step2;
+        cout << step3 << endl; 
+
         // ask user if more upc code 
         cout << userNumber;
         cin >> userAnswer;
