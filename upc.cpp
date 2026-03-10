@@ -70,6 +70,7 @@ int mainFunction()
  * @brief: calculates and validates the upc code from user input
  * @param: userFirstNum, manDigits, proDigits, userLastNum, upcEntire
  * @return: void
+ */
 void ucpSystemFunction(int userFirstNum, std::__1::vector<int> &manDigits, std::__1::vector<int> &proDigits, int userLastNum, std::__1::string &upcEntire)
 {
     // step 1: add all the odd digits together
